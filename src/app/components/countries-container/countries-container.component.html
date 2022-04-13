@@ -1,1 +1,23 @@
-<p>countries-container works!</p>
+<div class="row">
+  <div class="col-lg-6">
+    <app-dropdown
+      [dropDownData]="regions$ | async"
+      [actionType]="'Region'"
+      (selectedItemEvent)="getCurrentOption($event)">
+    </app-dropdown>
+  </div>
+  <div class="col-lg-6">
+    <app-dropdown
+      [dropDownData]="countries$ | async"
+      [actionType]="'Country'"
+      (selectedItemEvent)="getCurrentOption($event)">
+    </app-dropdown>
+  </div>
+</div>
+<div  class="m-t-24">
+  <app-country-details
+    [countryDetails]="currentCountry$ | async"
+    [selectedOption]="currentOption">
+  </app-country-details>
+</div>
+

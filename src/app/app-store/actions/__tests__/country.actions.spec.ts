@@ -1,4 +1,4 @@
-import * as fromCountry from './country.actions';
+import * as fromCountry from '../country.actions';
 
 describe('Country actions', () => {
 

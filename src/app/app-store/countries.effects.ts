@@ -10,25 +10,27 @@ import { Country } from '../models/country';
 @Injectable()
 export class CountriesEffects {
 
-  countries$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(CountriesActions.getCountries),
-      switchMap(
-        ({ region }) => {
-          return this.countriesService.getCountries(region).pipe(
-            map((countries: Country[]) => {
-              return CountriesApiActions.getCountriesSuccess({ countries });
-            }),
-            catchError((err) =>
-              of(CountriesApiActions.getCountriesFailure({ errorMsg: err.message }))
-            )
-          );
-        }
-      )
-    )
+  // @ts-ignore
+  countries$ = createEffect(() => {
+      return this.actions$.pipe(
+        ofType(CountriesActions.getCountries),
+        switchMap(
+          ({region}) => {
+            return this.countriesService.getCountries(region).pipe(
+              map((countries: Country[]) => {
+                return CountriesApiActions.getCountriesSuccess({countries});
+              }),
+              catchError((err) =>
+                of(CountriesApiActions.getCountriesFailure({errorMsg: err.message}))
+              )
+            );
+          }
+        )
+      );
+    }
   );
 
-  constructor(
+  public constructor(
     private actions$: Actions,
     private countriesService: CountriesService
   ) { }

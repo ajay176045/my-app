@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CountriesContainerComponent } from './countries-container.component';
+import { CountriesContainerComponent } from '../countries-container.component';
+import {Store, StoreModule} from '@ngrx/store';
 
 describe('CountriesContainerComponent', () => {
   let component: CountriesContainerComponent;
@@ -8,7 +9,8 @@ describe('CountriesContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CountriesContainerComponent ]
+      declarations: [ CountriesContainerComponent ],
+      imports: [StoreModule.forRoot({})],
     })
     .compileComponents();
   });
@@ -19,7 +21,7 @@ describe('CountriesContainerComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create CountriesContainerComponent', () => {
     expect(component).toBeTruthy();
   });
 });

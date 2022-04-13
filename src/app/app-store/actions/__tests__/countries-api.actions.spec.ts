@@ -1,4 +1,4 @@
-import * as fromCountriesApi from './countries-api.actions';
+import * as fromCountriesApi from '../countries-api.actions';
 
 describe('Countries API actions', () => {
 

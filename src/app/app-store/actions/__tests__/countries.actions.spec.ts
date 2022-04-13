@@ -1,4 +1,4 @@
-import * as fromCountries from './countries.actions';
+import * as fromCountries from '../countries.actions';
 
 describe('Countries actions', () => {
   it('Should return the getCountries action', () => {
